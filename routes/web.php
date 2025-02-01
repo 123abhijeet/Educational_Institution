@@ -31,15 +31,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontendController::class, 'index'])->name('Home');
-Route::get('/contact', [FrontendController::class, 'contact'])->name('Contact');
-Route::get('/branch', [FrontendController::class, 'branch'])->name('Branch');
-Route::get('/course', [FrontendController::class, 'course'])->name('Course');
-Route::get('/feedback', [FrontendController::class, 'feedback'])->name('Feedback');
+Route::get('/about', [FrontendController::class, 'about'])->name('About');
+Route::get('/teachers', [FrontendController::class, 'teachers'])->name('Teachers');
 Route::get('/gallery', [FrontendController::class, 'gallery'])->name('Gallery');
-Route::get('/studentzone', [FrontendController::class, 'studentzone'])->name('Studentzone');
-Route::get('/get_enrollment_info',[FrontendController::class,'get_enrollment_info'])->name('Get-Enrollment-Info');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('Contact');
 
-Route::prefix('SoftCampus-Panel')->middleware(['auth'])->group(function () {
+Route::prefix('Admin-Panel')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [BackendController::class, 'index'])->name('Admin-Dashboard');
 
     Route::resources([
